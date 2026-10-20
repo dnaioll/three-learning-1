@@ -11,9 +11,9 @@ document.body.appendChild(renderer.domElement);
 const fov = 75;
 const aspect = w/h;
 const near = 0.1;
-const far = 10;
+const far = 100;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.z = 2;
+camera.position.z = 2.5;
 //criando a cena
 const scene = new THREE.Scene();
 
@@ -24,7 +24,7 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.03;
 
 //cria um objeto (geometria, material e mescla os dois)
-const geo = new THREE.IcosahedronGeometry(1.0, 2);
+const geo = new THREE.IcosahedronGeometry(1, 2);
 const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     flatShading: true
@@ -50,7 +50,10 @@ scene.add(hemiLight)
 //criando o loop de animação
 function animate(t = 0) {
     requestAnimationFrame(animate);
-    //mesh.rotation.y = t * 0.0001;
+    // mesh.rotation.y = t * 0.0002;
+    // mesh.rotation.x = t * 0.0002;
+    // mesh.rotation.z = t * 0.0002;
+    mesh.rotation.set(t*0.0003, t*0.0003, t*0.0003)
     renderer.render(scene, camera);
     controls.update();
 }
