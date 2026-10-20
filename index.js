@@ -53,7 +53,7 @@ function animate(t = 0) {
     // mesh.rotation.y = t * 0.0002;
     // mesh.rotation.x = t * 0.0002;
     // mesh.rotation.z = t * 0.0002;
-    mesh.rotation.set(t*0.0003, t*0.0003, t*0.0003)
+    mesh.rotation.set(t*0.0003, t*0.0003, t*0.0003);
     renderer.render(scene, camera);
     controls.update();
 }
